@@ -2,11 +2,16 @@
 
 namespace App\Http;
 
+use App\Factories\User;
+use App\Api;
+
 class ApiUserController extends Controller
 {
     public function map()
     {
         $app = $this->app;
+
+        $this->api = new Api(new User());
 
         $app->get($this->baseRoute, [$this, 'index']);
         $app->get($this->baseRoute.'/:id', [$this, 'find']);
@@ -14,21 +19,18 @@ class ApiUserController extends Controller
 
     public function index()
     {
-        $app = $this->app;
+        $this->prepareHeader();
 
-        $app->response->headers->set('Content-Type', 'application/json');
-
-        $app->response->write(json_encode((array) $app->db->table('user')->get()));
+        $this->sendBody($this->api->getAllUsers());
     }
 
     public function find($id)
     {
         $app = $this->app;
 
-        $app->response->headers->set('Content-Type', 'application/json');
+        $this->prepareHeader();
 
-        if ($user = $app->db->table('user')->where('id', '=', $id)->first()) {
-
+        if ($user = $this->api->getUser($id)) {
             return $app->response->write(json_encode((array) $user));
         }
 

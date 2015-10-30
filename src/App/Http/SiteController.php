@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use Anu\Hooman;
+
 class SiteController extends Controller
 {
     public function map()
@@ -15,6 +17,13 @@ class SiteController extends Controller
     {
         $app = $this->app;
 
-        $app->render('site/index.php');
+        $human = Hooman::model('Edo');
+
+        dump(isset($human->hands));
+
+        // dd($human->methodYangGaAda(1,2,3,'xxx','yyy'));
+
+        // Statically
+        // Hooman::methodYangGaAda(1,2,3,'xxx','yyy');
     }
 }

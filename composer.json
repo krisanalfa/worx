@@ -6,6 +6,9 @@
         "illuminate/events": "^5.1"
     },
     "autoload": {
-        "psr-0": { "App\\": "src/" }
+        "psr-0": {
+            "App\\": "src/",
+            "Anu\\": "anu/"
+        }
     }
 }

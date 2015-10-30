@@ -22,9 +22,9 @@ class ControllerMiddleware extends Middleware
 
         // Route Configuration
         $routeConfig = [
-            '/' => \App\Http\SiteController::class,
             '/api/user' => \App\Http\ApiUserController::class,
             '/api' => \App\Http\ApiSiteController::class,
+            '/' => \App\Http\SiteController::class,
         ];
 
         // Request path info

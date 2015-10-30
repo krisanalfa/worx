@@ -4,8 +4,13 @@ namespace App\Http;
 
 use Slim\Slim;
 
+use App\Traits\HasHeader;
+use App\Traits\JsonResponse;
+
 abstract class Controller
 {
+    use HasHeader, JsonResponse;
+
     protected $app;
 
     protected $baseRoute;
