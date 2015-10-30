@@ -1,0 +1,11 @@
+{
+    "require": {
+        "slim/slim": "^2.6",
+        "illuminate/database": "^5.1",
+        "symfony/var-dumper": "^2.7",
+        "illuminate/events": "^5.1"
+    },
+    "autoload": {
+        "psr-0": { "App\\": "src/" }
+    }
+}
