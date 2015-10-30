@@ -40,9 +40,9 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user` (`id`, `username`, `first_name`, `last_name`, `email`, `password`)
 VALUES
-    (1,'admin','Super','Administrator','admin@mailtrap.io',NULL);
-    (2,'foo','Foo',null,'foo@mailtrap.io',NULL);
-    (3,'bar','Bar',null,'bar@mailtrap.io',NULL);
+    (1,'admin','Super','Administrator','admin@mailtrap.io',NULL),
+    (2,'foo','Foo',null,'foo@mailtrap.io',NULL),
+    (3,'bar','Bar',null,'bar@mailtrap.io',NULL),
     (4,'baz','Baz',null,'baz@mailtrap.io',NULL);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
