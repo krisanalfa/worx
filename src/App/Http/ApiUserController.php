@@ -27,7 +27,7 @@ class ApiUserController extends Controller
 
         $app->response->headers->set('Content-Type', 'application/json');
 
-        if ($user = $app->db->table('user')->where('user_id', '=', $id)->first()) {
+        if ($user = $app->db->table('user')->where('id', '=', $id)->first()) {
 
             return $app->response->write(json_encode((array) $user));
         }

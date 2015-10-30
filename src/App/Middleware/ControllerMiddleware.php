@@ -23,8 +23,8 @@ class ControllerMiddleware extends Middleware
         // Route Configuration
         $routeConfig = [
             '/' => \App\Http\SiteController::class,
-            '/api' => \App\Http\ApiSiteController::class,
             '/api/user' => \App\Http\ApiUserController::class,
+            '/api' => \App\Http\ApiSiteController::class,
         ];
 
         // Request path info
@@ -32,7 +32,13 @@ class ControllerMiddleware extends Middleware
 
         // Searching per directory
         foreach ($routeConfig as $basePath => $controller) {
-            if (starts_with(ltrim($pathInfo, '/'), ltrim($basePath, '/')) or $pathInfo === $basePath) {
+            if ($pathInfo === $basePath) {
+                with(new $controller($app, $basePath))->map();
+
+                break;
+            }
+
+            if (starts_with(ltrim($pathInfo, '/'), ltrim($basePath, '/'))) {
                 with(new $controller($app, $basePath))->map();
 
                 break;
